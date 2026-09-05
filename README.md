@@ -47,21 +47,13 @@ df.head()
 df.isnull().sum() 
 print(df.duplicated().sum())
 df=df.drop(['Surname', 'Geography','Gender'], axis=1, errors='ignore')
-# Normalize the dataset
 scaler=StandardScaler()
 df=pd.DataFrame(scaler.fit_transform(df))
 df.head()
-
 X,Y=df.iloc[:,:-1].values ,df.iloc[:,-1].values  
-
- # Splitting the data for training & Testing
 print('Input:\n',X,'\nOutput:\n',Y) 
 Xtrain,Xtest,Ytrain,Ytest = train_test_split(X, Y, test_size=0.2)  
-
-# X Train and Test
-print("Xtrain:\n" ,Xtrain, "\nXtest:\n", Xtest)    
-
-# Y Train and Test
+print("Xtrain:\n" ,Xtrain, "\nXtest:\n", Xtest)   
 print("\nYtrain:\n" ,Ytrain, "\nYtest:\n", Ytest)                   
 ```
 
